@@ -2,12 +2,14 @@ import React from "react";
 import { useEffect, useRef, useState } from "react";
 import Button from "./utilities/Button";
 import LinkItem from "./LinkItem";
+import { useCopyToClipboard } from "usehooks-ts";
 
 export default function Shortner() {
   const [input, setInput] = useState({ myInp: "" });
   const [links, setLinks] = useState([]);
   const [items, setItems] = useState([]);
   const urlInp = useRef(null);
+  const [value , copy] = useCopyToClipboard()
 
   function getInput(e) {
     const { name, value } = e.target;
@@ -52,9 +54,9 @@ export default function Shortner() {
     const copiedLink = e.target.parentElement.querySelector(".short-link");
     // copiedLink.select()
     // copiedLink.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copiedLink.textContent);
+    // navigator.clipboard.writeText(copiedLink.textContent);
     alert("Copied the text: " + copiedLink.textContent);
-    console.log(copiedLink.textContent);
+    copy(copiedLink.textContent)
   }
 
   return (
