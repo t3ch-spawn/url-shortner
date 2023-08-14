@@ -50,8 +50,8 @@ export default function Shortner() {
 
   function copyLink(e) {
     const copiedLink = e.target.parentElement.querySelector(".short-link");
-    copiedLink.select()
-    copiedLink.setSelectionRange(0, 99999);
+    // copiedLink.select()
+    // copiedLink.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(copiedLink.textContent);
     alert("Copied the text: " + copiedLink.textContent);
     console.log(copiedLink.textContent);
