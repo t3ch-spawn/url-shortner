@@ -37,6 +37,10 @@ a {
   color: red !important;
 }
 
+.hamburger {
+  display: none;
+}
+
 @media (max-width: 1000px) {
   .stat-boxes {
     display: grid;
@@ -54,5 +58,131 @@ a {
 
   .stats-bar {
     display: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .navbar {
+    display: none;
+  }
+
+  .navbar.active {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: hsl(257, 27%, 26%);
+    flex-direction: column;
+    z-index: 20;
+    padding: 50px 0;
+    width: 80%;
+    border-radius: 10px;
+    gap: 20px;
+    color: white;
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+  }
+
+  .navbar > div {
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .ham-bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+
+
+  .hamburger.active .ham-bar-1 {
+    animation: animBar-1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+  }
+
+  .hamburger.not .ham-bar-1 {
+    animation: animBar-1-reverse;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+  }
+
+  .hamburger.active .ham-bar-2 {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  .hamburger.active .ham-bar-3 {
+    animation: animBar-3;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+  }
+
+  .hamburger.not .ham-bar-3 {
+    animation: animBar-3-reverse;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes animBar-1 {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(7px);
+    }
+    100% {
+      transform: translateY(7px) rotate(45deg);
+    }
+  }
+  @keyframes animBar-1-reverse {
+    0% {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    50% {
+      transform: translateY(7px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  @keyframes animBar-3 {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+    100% {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+  @keyframes animBar-3-reverse {
+    0% {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 }
