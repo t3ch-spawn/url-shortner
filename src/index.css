@@ -63,23 +63,30 @@ a {
 
 @media screen and (max-width: 750px) {
   .navbar {
-    display: none;
-  }
-
-  .navbar.active {
-    display: flex;
-    position: fixed;
+    opacity: 0;
+    pointer-events: none;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: hsl(257, 27%, 26%);
+    position: fixed;
+    width: 40%;
     flex-direction: column;
     z-index: 20;
+    transition: 0.3s ease;
+    display: flex;
     padding: 50px 0;
-    width: 80%;
+    
+  }
+
+  .navbar.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
     border-radius: 10px;
     gap: 20px;
     color: white;
+    width: 80%;
   }
 
   .navbar nav ul {
@@ -96,6 +103,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 30px;
+    height: fit-content;
     gap: 4px;
     cursor: pointer;
   }
@@ -108,8 +116,6 @@ a {
     transition: 0.3s;
   }
 
-
-
   .hamburger.active .ham-bar-1 {
     animation: animBar-1;
     animation-fill-mode: forwards;
@@ -118,7 +124,7 @@ a {
 
   .hamburger.not .ham-bar-1 {
     animation: animBar-1-reverse;
-    animation-fill-mode: forwards;
+    animation-fill-mode: backwards;
     animation-duration: 0.5s;
   }
 
@@ -130,12 +136,14 @@ a {
   .hamburger.active .ham-bar-3 {
     animation: animBar-3;
     animation-fill-mode: forwards;
+    animation-direction: normal;
     animation-duration: 0.5s;
   }
 
   .hamburger.not .ham-bar-3 {
     animation: animBar-3-reverse;
     animation-fill-mode: forwards;
+    animation-direction: normal;
     animation-duration: 0.5s;
   }
 

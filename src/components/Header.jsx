@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import logo from '../assets/images/logo.svg';
 import logo2 from '../assets/images/logo copy.svg';
 import Button from './utilities/Button';
 
 export default function Header() {
   const [isShown, setIsShown] = useState(false);
+  const ham = useRef(null);
+  const [not, setNot] = useState('')
 
   return (
-    <div className="px-8 pt-8 flex items-center justify-between font-bold text-font1 w-[100%] -750:sticky -750:z-[20] -750:bg-white -750:py-6    -750:top-0">
+    <div className="px-8 pt-8 flex items-center justify-between font-bold text-font1 w-[100%] -750:sticky -750:z-[20] -750:bg-white -750:py-6 -750:top-0">
       <div>
         <img className="hidden -750:block" src={logo} alt="" />
       </div>
 
-      <div
+      <div ref={ham}
         onClick={() => {
           setIsShown(!isShown);
+          if(ham.current.classList.contains('active')){
+              setNot('not')
+          } else{
+            setNot('')
+          }
         }}
-        className={`hamburger ${isShown ? 'active' : 'not'}`}
+        className={`hamburger ${isShown ? 'active' : ''} ${not}`}
       >
         <div className="ham-bar ham-bar-1"></div>
         <div className="ham-bar ham-bar-2"></div>
