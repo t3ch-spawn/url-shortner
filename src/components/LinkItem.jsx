@@ -34,6 +34,10 @@ export default function LinkItem(props) {
     ];
 
     let iteration = 0;
+    if (e.target.innerText == 'copied!') {
+      const copiedLinkTemp = e.target.parentElement.querySelector('.short-link');
+      alert('Copied the text: ' + copiedLinkTemp.textContent);
+    }
     if (e.target.innerText != 'copied!') {
       e.target.classList.add('active');
       const phraser = setInterval(() => {
