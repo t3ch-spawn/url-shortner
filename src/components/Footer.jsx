@@ -30,7 +30,9 @@ export default function Footer() {
           <img src={facebook} alt="" />
         </li>
         <li>
-          <img src={twiiter} alt="" />
+          <a href="https://twitter.com/t3ch_spawn">
+            <img src={twiiter} alt="" />
+          </a>
         </li>
         <li>
           <img src={pinterest} alt="" />
@@ -39,7 +41,6 @@ export default function Footer() {
           <img src={instagram} alt="" />
         </li>
       </ul>
-      Name
       <div className="absolute bottom-2 text-white text-sm flex flex-col justify-center items-center">
         <span>
           Built with ❤ by
@@ -64,7 +65,11 @@ export default function Footer() {
 
 function FooterHelper(props) {
   const lists = props.arr.map((curr) => {
-    return <li key={Math.random()} className="text-grey">{curr}</li>;
+    return (
+      <li key={Math.random()} className="text-grey">
+        {curr}
+      </li>
+    );
   });
 
   return (

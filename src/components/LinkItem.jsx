@@ -56,7 +56,7 @@ export default function LinkItem(props) {
         if (iteration > e.target.dataset.value.length) {
           clearInterval(phraser);
         }
-      }, 30);
+      }, 40);
     }
   }
 

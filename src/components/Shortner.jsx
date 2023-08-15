@@ -8,6 +8,7 @@ export default function Shortner() {
   const [links, setLinks] = useState([]);
   const [items, setItems] = useState([]);
   const [myWord, setMyWord] = useState('Shorten It!');
+  const [isValid, setIsValid] = useState(true);
   const urlInp = useRef(null);
 
   function getInput(e) {
@@ -16,6 +17,9 @@ export default function Shortner() {
   }
 
   function showItems() {
+
+    if(urlInp.current.value == "") setIsValid(false)
+
     if (urlInp.current.value !== '') {
       setMyWord('Loading...');
 
@@ -23,16 +27,16 @@ export default function Shortner() {
         .then((res) => res.json())
         .then((data) => {
           if (!data.ok) {
-            alert('please put in a valid link');
+            // alert('please put in a valid link');
             setMyWord('Shorten It!');
-
+            setIsValid(false);
             return;
           }
           setMyWord('Shorten It!');
+          setIsValid(true);
           setItems((prevItems) => {
             return [{ inp: input.myInp, isCopied: false }, ...prevItems];
           });
-          console.log(items);
           return setLinks((prevLinks) => {
             return [data.result.full_short_link2, ...prevLinks];
           });
@@ -66,15 +70,24 @@ export default function Shortner() {
 
   return (
     <div className="relative flex flex-col gap-5 justify-center items-start w-[80%] -500:w-[100%] max-w-[700px] top-[-150px]">
-      <div className="flex w-[100%] bg-darkBlue rounded min-h-[100px] justify-between items-center gap-3  px-5 -850:flex-col -850:items-center -850:justify-center -850:gap-6 -850:py-5 ">
+      <div className="relative flex w-[100%] bg-darkBlue rounded min-h-[100px] justify-between items-center gap-3  px-5 -850:flex-col -850:items-center -850:justify-center -850:gap-6 -850:py-5 ">
         <input
           ref={urlInp}
-          className="w-[70%] rounded-md h-[40px] px-4 text-sm -850:w-[100%]"
+          className={`url-input ${
+            isValid ? '' : 'active'
+          } w-[70%] rounded-md h-[40px] px-4 text-sm -850:w-[100%]`}
           type="text"
           onChange={getInput}
           name="myInp"
           placeholder="Shorten a link here..."
         />
+        {isValid ? (
+          ''
+        ) : (
+          <p className="text-red-500 absolute bottom-2 left-8 text-sm italic">
+            please add a valid link
+          </p>
+        )}
         <div className="-850:flex -850:w-[100%] -850:justify-center" onClick={showItems}>
           <Button
             style={'rounded-md -850:flex -850:w-[60%] -850:justify-center -500:w-[100%]'}
