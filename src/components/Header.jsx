@@ -6,23 +6,36 @@ import Button from './utilities/Button';
 export default function Header() {
   const [isShown, setIsShown] = useState(false);
   const ham = useRef(null);
-  const [not, setNot] = useState('')
+  const [not, setNot] = useState('');
+
+  function handleMenu() {
+    setIsShown(!isShown);
+    if (ham.current.classList.contains('active')) {
+      setNot('not');
+    } else {
+      setNot('');
+    }
+  }
 
   return (
-    <div className="px-8 pt-8 flex items-center justify-between font-bold text-font1 w-[100%] -750:sticky -750:z-[20] -750:bg-white -750:py-6 -750:top-0">
+    <div className="shadow-md px-8 pt-8 flex items-center justify-between font-bold text-font1 w-[100%] -750:sticky -750:z-[25] -750:bg-white -750:py-6 -750:top-0">
       <div>
         <img className="hidden -750:block" src={logo} alt="" />
       </div>
 
-      <div ref={ham}
-        onClick={() => {
-          setIsShown(!isShown);
-          if(ham.current.classList.contains('active')){
-              setNot('not')
-          } else{
-            setNot('')
-          }
-        }}
+      {/* overlay */}
+      {isShown ? (
+        <div
+          className="fixed bg-overlay top-0 left-0 h-[100%] w-[100%] z-[15]"
+          onClick={handleMenu}
+        ></div>
+      ) : (
+        ''
+      )}
+
+      <div
+        ref={ham}
+        onClick={handleMenu}
         className={`hamburger ${isShown ? 'active' : ''} ${not}`}
       >
         <div className="ham-bar ham-bar-1"></div>

@@ -76,6 +76,7 @@ a {
     transition: 0.3s ease;
     display: flex;
     padding: 50px 0;
+    gap: 20px;
     
   }
 
@@ -84,7 +85,6 @@ a {
     opacity: 1;
     pointer-events: all;
     border-radius: 10px;
-    gap: 20px;
     color: white;
     width: 80%;
   }
@@ -106,6 +106,7 @@ a {
     height: fit-content;
     gap: 4px;
     cursor: pointer;
+    z-index: 20;
   }
 
   .ham-bar {

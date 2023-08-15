@@ -10,6 +10,7 @@ export default {
         heading: ' hsl(255, 11%, 22%)',
         grey: 'hsl(0, 0%, 75%)',
         darkViol: 'hsl(260, 8%, 14%)',
+        overlay: 'rgb(0, 0, 0, 0.5)'
       },
 
       fontFamily: {
