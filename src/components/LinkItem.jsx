@@ -5,10 +5,57 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 export default function LinkItem(props) {
   function copyLink(e) {
     const copiedLinkTemp = e.target.parentElement.querySelector('.short-link');
-    // copiedLink.select()
-    // copiedLink.setSelectionRange(0, 99999);
-    // navigator.clipboard.writeText(copiedLink.textContent);
     alert('Copied the text: ' + copiedLinkTemp.textContent);
+    const letters = [
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+      'F',
+      'G',
+      'H',
+      'I',
+      'J',
+      'K',
+      'L',
+      'M',
+      'N',
+      'O',
+      'P',
+      'Q',
+      'R',
+      'S',
+      'T',
+      'U',
+      'V',
+      'W',
+      'X',
+      'Y',
+      'Z',
+    ];
+
+    let iteration = 0;
+    if (e.target.innerText != 'copied!') {
+      e.target.classList.add('active');
+      const phraser = setInterval(() => {
+        iteration += 1 / 3;
+        e.target.innerText = e.target.dataset.value
+          .split('')
+          .map((curr, i) => {
+            if (i < iteration) {
+              return e.target.dataset.value[i];
+            }
+
+            return letters[Math.floor(Math.random() * 26)].toLowerCase();
+          })
+          .join('');
+
+        if (iteration > e.target.dataset.value.length) {
+          clearInterval(phraser);
+        }
+      }, 30);
+    }
   }
 
   return (
@@ -27,10 +74,16 @@ export default function LinkItem(props) {
         <p className="font-semibold short-link text-cyan">{props.short}</p>
         <CopyToClipboard text={props.short}>
           <span
-            onClick={copyLink}
-            className={`px-4 py-2 text-white cursor-pointer rounded-md bg-cyan text-center -850:w-[60%] -500:w-[100%]`}
+            data-value="copied!"
+            onClick={(e) => {
+              copyLink(e);
+              props.onCopy();
+            }}
+            className={`copy-btn ${
+              props.isCopied ? 'active' : ''
+            } px-4 py-2 text-white cursor-pointer rounded-md bg-cyan text-center -850:w-[60%] -500:w-[100%]`}
           >
-            copy
+            {props.isCopied ? 'copied!' : 'copy'}
           </span>
         </CopyToClipboard>
       </div>

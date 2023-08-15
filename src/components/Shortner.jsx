@@ -30,8 +30,9 @@ export default function Shortner() {
           }
           setMyWord('Shorten It!');
           setItems((prevItems) => {
-            return [input.myInp, ...prevItems];
+            return [{ inp: input.myInp, isCopied: false }, ...prevItems];
           });
+          console.log(items);
           return setLinks((prevLinks) => {
             return [data.result.full_short_link2, ...prevLinks];
           });
@@ -43,7 +44,24 @@ export default function Shortner() {
   }
 
   const displayLinks = items.map((curr, i) => {
-    return <LinkItem key={Math.random()} link={curr} short={links[i]} />;
+    return (
+      <LinkItem
+        key={Math.random()}
+        link={curr.inp}
+        short={links[i]}
+        isCopied={curr.isCopied}
+        onCopy={() => {
+          const found = links.find((item, idx) => {
+            return idx == i;
+          });
+          setItems((prevItems) => {
+            let tempItems = prevItems;
+            tempItems[links.indexOf(found)].isCopied = true;
+            return tempItems;
+          });
+        }}
+      />
+    );
   });
 
   return (
@@ -59,9 +77,7 @@ export default function Shortner() {
         />
         <div className="-850:flex -850:w-[100%] -850:justify-center" onClick={showItems}>
           <Button
-            style={
-              'rounded-md -850:flex -850:w-[60%] -850:justify-center -500:w-[100%]'
-            }
+            style={'rounded-md -850:flex -850:w-[60%] -850:justify-center -500:w-[100%]'}
             word={myWord}
           />
         </div>

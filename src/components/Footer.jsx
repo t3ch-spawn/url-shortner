@@ -12,7 +12,6 @@ export default function Footer() {
       <div>
         <img className="cursor-pointer" src={logo} alt="" />
       </div>
-
       {/* Footer Redirects */}
       <div className="flex gap-[5rem] text-sm -850:flex-col -850:gap-8">
         <FooterHelper
@@ -25,7 +24,6 @@ export default function Footer() {
           arr={['About', 'Our Team', 'Careers', 'Contact']}
         />
       </div>
-
       {/* Footer icons */}
       <ul className="flex justify-center items-center gap-4">
         <li>
@@ -41,18 +39,21 @@ export default function Footer() {
           <img src={instagram} alt="" />
         </li>
       </ul>
-
-      <div class="absolute bottom-2 text-white text-sm flex flex-col justify-center items-center">
+      Name
+      <div className="absolute bottom-2 text-white text-sm flex flex-col justify-center items-center">
         <span>
           Built with ❤ by
-          <a class="underline mx-2" href="https://twitter.com/t3ch_spawn">
+          <a className="underline mx-2" href="https://twitter.com/t3ch_spawn">
             Boluwatife
           </a>
         </span>
 
         <span>
           Challenge by
-          <a class="underline mx-2" href="https://www.frontendmentor.io?ref=challenge">
+          <a
+            className="underline mx-2"
+            href="https://www.frontendmentor.io?ref=challenge"
+          >
             Frontend Mentor
           </a>
         </span>
@@ -63,7 +64,7 @@ export default function Footer() {
 
 function FooterHelper(props) {
   const lists = props.arr.map((curr) => {
-    return <li className="text-grey">{curr}</li>;
+    return <li key={Math.random()} className="text-grey">{curr}</li>;
   });
 
   return (

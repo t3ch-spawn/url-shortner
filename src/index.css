@@ -22,6 +22,14 @@ a {
   text-decoration: none;
 }
 
+.copy-btn{
+  transition: 0.3s;
+}
+
+.copy-btn.active{
+  background-color: hsl(257, 27%, 26%);
+}
+
 @media (max-width: 1000px) {
   .stat-boxes {
     display: grid;
