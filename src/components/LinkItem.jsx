@@ -3,6 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 export default function LinkItem(props) {
+  function copyLink(e) {
+    const copiedLinkTemp = e.target.parentElement.querySelector(".short-link");
+    // copiedLink.select()
+    // copiedLink.setSelectionRange(0, 99999);
+    // navigator.clipboard.writeText(copiedLink.textContent);
+    alert("Copied the text: " + copiedLinkTemp.textContent);
+  }
+
   return (
     <div className="flex items-center justify-between w-[100%] gap-5 bg-white p-3 rounded text-xs">
       <div>
