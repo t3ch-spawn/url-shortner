@@ -4,8 +4,6 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 
 export default function LinkItem(props) {
   function copyLink(e) {
-    const copiedLinkTemp = e.target.parentElement.querySelector('.short-link');
-    alert('Copied the text: ' + copiedLinkTemp.textContent);
     const letters = [
       'A',
       'B',
