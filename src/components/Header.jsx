@@ -7,7 +7,7 @@ export default function Header() {
     <div className="px-8 pt-8 flex items-center justify-between font-bold text-font1 w-[100%]">
       {/* left of header */}
 
-      <nav>
+      <nav className="750:hidden">
         <ul className="flex items-center gap-4">
           <li className="mr-3">
             <img src={logo} alt="" />

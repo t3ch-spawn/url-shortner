@@ -7,6 +7,7 @@ export default function Shortner() {
   const [input, setInput] = useState({ myInp: "" });
   const [links, setLinks] = useState([]);
   const [items, setItems] = useState([]);
+  const [myWord, setMyWord] = useState("Shorten It!");
   const urlInp = useRef(null);
 
   function getInput(e) {
@@ -16,14 +17,18 @@ export default function Shortner() {
 
   function showItems() {
     if (urlInp.current.value !== "") {
+      setMyWord("Loading...");
+
       fetch(`https://api.shrtco.de/v2/shorten?url=${input.myInp}`)
         .then((res) => res.json())
         .then((data) => {
           if (!data.ok) {
             alert("please put in a valid link");
+          setMyWord("Shorten It!");
+
             return;
           }
-          console.log(data);
+          setMyWord("Shorten It!");
           setItems((prevItems) => {
             return [input.myInp, ...prevItems];
           });
@@ -52,8 +57,14 @@ export default function Shortner() {
           name="myInp"
           placeholder="Shorten a link here..."
         />
-        <div className="850:flex 850:w-[100%] 850:justify-center" onClick={showItems}>
-          <Button style={"rounded-md 850:flex 850:w-[60%] 850:justify-center"} word={"Shorten It!"} />
+        <div
+          className="850:flex 850:w-[100%] 850:justify-center"
+          onClick={showItems}
+        >
+          <Button
+            style={"rounded-md 850:flex 850:w-[60%] 850:justify-center"}
+            word={myWord}
+          />
         </div>
       </div>
 

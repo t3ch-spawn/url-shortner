@@ -54,7 +54,7 @@ export default function Statistics(props) {
 function StatsHelper(props) {
   return (
     <div
-      className={`${props.style} relative flex flex-col justify-start items-start gap-3 p-6 pt-16 bg-white max-w-[300px] min-h-[200px] rounded 850:text-center`}
+      className={`${props.style} relative flex flex-col justify-start items-start gap-3 p-6 pt-16 bg-white max-w-[300px] min-h-[200px] rounded 850:text-center 850:items-center`}
     >
       <img
         className="absolute bg-darkBlue top-[-40px] left-11 850:left-[50%] 850:translate-x-[-50%] p-5 rounded-[50%]"

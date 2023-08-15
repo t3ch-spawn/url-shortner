@@ -29,6 +29,8 @@ a {
     grid-auto-rows: 1fr;
     justify-items: center;
     align-items: center;
+    row-gap: 70px;
+    column-gap: 50px;
   }
 
   .stat-boxes > *{
