@@ -83,7 +83,7 @@ export default function LinkItem(props) {
             }}
             className={`copy-btn ${
               props.isCopied ? 'active' : ''
-            } px-4 py-2 text-white cursor-pointer rounded-md bg-cyan text-center -850:w-[60%] -500:w-[100%]`}
+            } px-4 py-2 text-white text-sm cursor-pointer rounded-md bg-cyan text-center -850:w-[60%] -500:w-[100%]`}
           >
             {props.isCopied ? 'copied!' : 'copy'}
           </span>
