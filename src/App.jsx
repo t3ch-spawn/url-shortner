@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import Header from "./components/Header";
 import Shortner from "./components/Shortner";
 import Statistics from "./components/Statistics";
+import Boost from "./components/Boost";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Statistics>
         <Shortner />
       </Statistics>
+      <Boost/>
+      <Footer/>
     </div>
   );
 }
