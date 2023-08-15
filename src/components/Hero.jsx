@@ -4,9 +4,9 @@ import illustration from "../assets/images/illustration-working.svg";
 export default function Hero(props) {
   return (
     <div className="px-8 relative pt-[40px] pb-[80px] flex flex-col justify-center w-[100%] gap-[80px]  items-center">
-      <div className="flex justify-between w-[100%] gap-[80px] items-center">
+      <div className="flex justify-between w-[100%] gap-[80px] items-center 850:flex-col ">
         {/* typography */}
-        <div className="text-left w-[100%] max-w-[650px] flex flex-col gap-3">
+        <div className="text-left w-[100%] max-w-[650px] flex flex-col gap-3 850:text-center 850:items-center">
           <h1 className="text-6xl font-bold leading-[120%] text-heading">
             More than just shorter links
           </h1>
@@ -17,8 +17,8 @@ export default function Hero(props) {
         </div>
 
         {/* image */}
-        <div>
-          <img src={illustration} alt="" />
+        <div className="flex justify-center">
+          <img className="850:w-[75%]" src={illustration} alt="" />
         </div>
       </div>
 

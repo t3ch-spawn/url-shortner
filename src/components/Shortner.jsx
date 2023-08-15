@@ -43,17 +43,17 @@ export default function Shortner() {
 
   return (
     <div className="relative flex flex-col gap-5 justify-center items-start w-[80%] max-w-[700px] top-[-150px]">
-      <div className="flex w-[100%] bg-darkBlue rounded h-[100px] justify-between items-center gap-3 px-5">
+      <div className="flex w-[100%] bg-darkBlue rounded min-h-[100px] justify-between items-center gap-3  px-5 850:flex-col 850:items-center 850:justify-center 850:gap-6 850:py-5 ">
         <input
           ref={urlInp}
-          className="w-[70%] rounded-md h-[40px] px-4 text-sm"
+          className="w-[70%] rounded-md h-[40px] px-4 text-sm 850:w-[90%]"
           type="text"
           onChange={getInput}
           name="myInp"
           placeholder="Shorten a link here..."
         />
-        <div onClick={showItems}>
-          <Button style={"rounded-md"} word={"Shorten It!"} />
+        <div className="850:flex 850:w-[100%] 850:justify-center" onClick={showItems}>
+          <Button style={"rounded-md 850:flex 850:w-[60%] 850:justify-center"} word={"Shorten It!"} />
         </div>
       </div>
 

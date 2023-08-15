@@ -6,14 +6,17 @@ export default {
       colors: {
         cyan: "hsl(180, 66%, 49%)",
         font1: " hsl(257, 7%, 63%)",
-        darkBlue: 'hsl(257, 27%, 26%)',
-        heading: ' hsl(255, 11%, 22%)',
-        grey: 'hsl(0, 0%, 75%)'
+        darkBlue: "hsl(257, 27%, 26%)",
+        heading: " hsl(255, 11%, 22%)",
+        grey: "hsl(0, 0%, 75%)",
       },
 
-      fontFamily:{
-        "poppins": ["Poppins"]
-      }
+      fontFamily: {
+        poppins: ["Poppins"],
+      },
+      screens: {
+        "850": { max: "850px" },
+      },
     },
   },
   plugins: [],
